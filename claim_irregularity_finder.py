@@ -46,7 +46,20 @@ EVIDENCE_DIR = "evidence"
 CACHE_DIR = "cache"
 
 # Configure logging
-logging.basicConfig(level=logging.DEBUG, format="%(levelname)s:%(message)s")
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
+# File handler captures full debug logs
+file_handler = logging.FileHandler("debug.log", encoding="utf-8")
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(logging.Formatter("%(levelname)s:%(message)s"))
+
+# Stream handler shows highlights to the user
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_handler.setFormatter(logging.Formatter("%(levelname)s:%(message)s"))
+
+logger.handlers = [file_handler, console_handler]
 # Suppress verbose pdfminer warnings such as missing CropBox messages
 logging.getLogger("pdfminer").setLevel(logging.ERROR)
 
