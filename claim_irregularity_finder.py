@@ -78,6 +78,8 @@ def download_and_extract(messages: List[dict]) -> List[str]:
             texts.append(body)
         for part in parts:
             filename = part.get("filename") or "part"
+            # Sanitize filename to avoid invalid characters on Windows
+            filename = re.sub(r"[\\/*?:\"<>|]", "_", filename)
             mime = part.get("mimeType", "")
             if part.get("body", {}).get("attachmentId"):
                 path = os.path.join(EVIDENCE_DIR, f"{msg_id}_{filename}")
