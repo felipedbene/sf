@@ -7,7 +7,7 @@ import base64
 import hashlib
 import sys
 from datetime import datetime
-from typing import List, Dict
+from typing import List, Dict, Union
 import email
 from email import policy
 from email.parser import BytesParser
