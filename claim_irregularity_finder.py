@@ -121,27 +121,49 @@ def download_and_extract(messages: List[dict], use_cache: bool = True) -> List[s
         json.dump(texts, f)
     return texts
 
+def _normalize_timestamp(ts: str) -> str:
+    """Return an ISO formatted timestamp if possible."""
+    for fmt in (
+        "%Y-%m-%dT%H:%M:%S",
+        "%Y-%m-%d %H:%M:%S",
+        "%Y-%m-%dT%H:%M",
+        "%Y-%m-%d %H:%M",
+        "%m/%d/%Y %H:%M:%S",
+        "%m/%d/%Y %H:%M",
+    ):
+        try:
+            return datetime.strptime(ts, fmt).isoformat()
+        except ValueError:
+            continue
+    return ts
+
+
 def parse_events(texts: List[str]) -> List[Dict]:
-    """Extract events from text using regex."""
+    """Extract events from various timestamped formats."""
     events = []
-    pattern = re.compile(
-        r"(?P<timestamp>\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}).*?(?P<actor>[^:]+): (?P<action>[^.\n]+)\.(?P<details>.*)",
-        re.DOTALL,
-    )
+    ts_part = r"(?P<timestamp>(?:\d{4}-\d{2}-\d{2}|\d{2}/\d{2}/\d{4})[ T]\d{2}:\d{2}(?::\d{2})?)"
+    patterns = [
+        re.compile(ts_part + r"\s*(?P<actor>[^:]+):\s*(?P<action>[^.\n]+)\.?\s*(?P<details>.*)", re.DOTALL),
+        re.compile(ts_part + r"\s*-\s*(?P<actor>[^-]+)\s*-\s*(?P<action>[^-\n]+)\s*-\s*(?P<details>.*)", re.DOTALL),
+    ]
     count = 0
     for text in tqdm(texts, desc="Parsing events"):
-        for m in pattern.finditer(text):
-            count += 1
-            events.append(
-                {
-                    "id": f"evt_{count:03d}",
-                    "actor": m.group("actor").strip(),
-                    "type": "Action",
-                    "action": m.group("action").strip(),
-                    "timestamp": m.group("timestamp"),
-                    "details": m.group("details").strip(),
-                }
-            )
+        for line in text.splitlines():
+            for pattern in patterns:
+                m = pattern.search(line)
+                if m:
+                    count += 1
+                    events.append(
+                        {
+                            "id": f"evt_{count:03d}",
+                            "actor": m.group("actor").strip(),
+                            "type": "Action",
+                            "action": m.group("action").strip(),
+                            "timestamp": _normalize_timestamp(m.group("timestamp")),
+                            "details": m.group("details").strip(),
+                        }
+                    )
+                    break
     return events
 
 def build_graph(events: List[Dict]) -> nx.DiGraph:
