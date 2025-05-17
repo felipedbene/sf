@@ -200,10 +200,26 @@ def parse_events(texts: List[str]) -> List[Dict]:
         r"(?P<timestamp>(?:\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/\d{4})"
         r"[ T]\d{1,2}:\d{2}(?::\d{2})?(?:\s?[APap][Mm])?)"
     )
+    next_ts = r"(?=\n(?:\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/\d{4})[ T]\d{1,2}:\d{2}|\n?$)"
     patterns = [
-        re.compile(ts_part + r"\s*(?P<actor>[^:]+):\s*(?P<action>[^.\n]+)\.?\s*(?P<details>.*)", re.DOTALL),
-        re.compile(ts_part + r"\s*-\s*(?P<actor>[^-]+)\s*-\s*(?P<action>[^-\n]+)\s*-\s*(?P<details>.*)", re.DOTALL),
-        re.compile(ts_part + r"\s+(?P<actor>[^-:\n]+)\s+(?P<action>[^-:\n]+)\s*(?P<details>.*)", re.DOTALL),
+        re.compile(
+            ts_part
+            + r"\s*(?P<actor>[^:]+):\s*(?P<action>[^.\n]+)\.?\s*(?P<details>.*?)"
+            + next_ts,
+            re.DOTALL,
+        ),
+        re.compile(
+            ts_part
+            + r"\s*-\s*(?P<actor>[^-]+)\s*-\s*(?P<action>[^-\n]+)\s*-\s*(?P<details>.*?)"
+            + next_ts,
+            re.DOTALL,
+        ),
+        re.compile(
+            ts_part
+            + r"\s+(?P<actor>[^-:\n]+)\s+(?P<action>[^-:\n]+)\s*(?P<details>.*?)"
+            + next_ts,
+            re.DOTALL,
+        ),
     ]
     count = 0
     for text in tqdm(texts, desc="Parsing events"):
