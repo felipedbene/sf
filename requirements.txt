@@ -1,0 +1,8 @@
+google_api_python_client==2.169.0
+google_auth_oauthlib==1.2.2
+networkx==3.4.2
+openai==1.79.0
+pandas==2.2.3
+pdfplumber==0.11.6
+protobuf==6.31.0
+pyvis==0.3.2
