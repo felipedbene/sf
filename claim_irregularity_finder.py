@@ -14,6 +14,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 import openai
 from pyvis.network import Network
+from tqdm import tqdm
 
 SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
 EVIDENCE_DIR = "evidence"
@@ -41,7 +42,7 @@ def fetch_claim_emails() -> List[dict]:
     query = '"State Farm Claim"'
     resp = service.users().messages().list(userId="me", q=query).execute()
     messages = []
-    for item in resp.get("messages", []):
+    for item in tqdm(resp.get("messages", []), desc="Downloading emails"):
         msg = (
             service.users()
             .messages()
@@ -73,7 +74,7 @@ def download_and_extract(messages: List[dict]) -> List[str]:
     creds = get_credentials()
     service = build("gmail", "v1", credentials=creds)
     texts = []
-    for msg in messages:
+    for msg in tqdm(messages, desc="Processing messages"):
         msg_id = msg["id"]
         payload = msg.get("payload", {})
         parts = payload.get("parts", [])
@@ -105,7 +106,7 @@ def parse_events(texts: List[str]) -> List[Dict]:
         re.DOTALL,
     )
     count = 0
-    for text in texts:
+    for text in tqdm(texts, desc="Parsing events"):
         for m in pattern.finditer(text):
             count += 1
             events.append(
@@ -122,9 +123,9 @@ def parse_events(texts: List[str]) -> List[Dict]:
 
 def build_graph(events: List[Dict]) -> nx.DiGraph:
     G = nx.DiGraph()
-    for evt in events:
+    for evt in tqdm(events, desc="Adding nodes"):
         G.add_node(evt["id"], **evt)
-    for i, evt in enumerate(events):
+    for i, evt in enumerate(tqdm(events, desc="Linking events")):
         ts_i = datetime.fromisoformat(evt["timestamp"])
         for j in range(i):
             prev = events[j]

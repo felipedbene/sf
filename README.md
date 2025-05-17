@@ -9,7 +9,7 @@ This project scans claim-related emails to identify irregularities in the claim 
    Install required packages with pip:
 
    ```bash
-   pip install google-auth google-auth-oauthlib google-api-python-client pdfplumber pandas networkx pyvis openai jinja2
+   pip install google-auth google-auth-oauthlib google-api-python-client pdfplumber pandas networkx pyvis openai jinja2 tqdm
    ```
 
 2. **Gmail Credentials**
@@ -40,6 +40,7 @@ The script will:
 3. Parse events from the collected text and build a directed graph with NetworkX.
 4. Send the list of events to the OpenAI API to detect irregular patterns.
 5. Annotate the graph with the irregularity results, print a summary table, and produce `claim_irregularity_map.html` and `claim_graph.graphml`.
+6. Display progress bars in the terminal while processing messages, parsing events, and building the graph.
 
 ## Output Files
 
