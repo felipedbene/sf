@@ -225,7 +225,20 @@ def visualize(G: nx.DiGraph) -> None:
         net.add_node(node, label=label, title=title, color=color)
     for src, dst in G.edges():
         net.add_edge(src, dst)
-    net.show("claim_irregularity_map.html")
+    html_file = "claim_irregularity_map.html"
+    try:
+        net.show(html_file)
+    except AttributeError:
+        # Workaround for occasional pyvis template loading issues which
+        # manifest as 'NoneType has no attribute "render"'.  Attempt to
+        # reload the default template and retry once before giving up.
+        try:
+            net.template = net.get_template()
+            net.show(html_file)
+        except Exception as exc:
+            print(f"Visualization failed: {exc}")
+            with open(html_file, "w", encoding="utf-8") as f:
+                f.write("<html><body><p>Unable to generate visualization.</p></body></html>")
     nx.write_graphml(G, "claim_graph.graphml")
 
 def main():
