@@ -31,7 +31,7 @@ def get_credentials() -> Credentials:
     return creds
 
 def fetch_claim_emails() -> List[dict]:
-    """Fetch unread emails for 'State Farm Claim' thread."""
+    """Fetch emails for 'State Farm claim 13-83R9-01P' thread."""
     creds = get_credentials()
     service = build("gmail", "v1", credentials=creds)
     query = '"State Farm Claim"'

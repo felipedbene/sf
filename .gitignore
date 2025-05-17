@@ -1,5 +1,14 @@
+# Python Cache
 venv
-token.json
-.env
 __pycache__
 *.pyc
+
+#Security Tokens
+token.json
+credentials.json
+.env
+
+# Execution Data
+*.eml
+
+
