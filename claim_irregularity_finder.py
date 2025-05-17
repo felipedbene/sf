@@ -63,17 +63,30 @@ def get_credentials() -> Credentials:
             token.write(creds.to_json())
     return creds
 
-def fetch_claim_emails(use_cache: bool = True) -> List[dict]:
-    """Fetch emails for 'State Farm claim 13-83R9-01P' thread."""
+def fetch_claim_emails(
+    claim_number: str | None = None,
+    keywords: List[str] | None = None,
+    use_cache: bool = True,
+) -> List[dict]:
+    """Fetch claim-related emails matching a claim number and keywords."""
     os.makedirs(CACHE_DIR, exist_ok=True)
-    cache_path = os.path.join(CACHE_DIR, "gmail_messages.json")
+    query_parts: List[str] = []
+    if claim_number:
+        query_parts.append(f'subject:"{claim_number}"')
+    if keywords:
+        query_parts.extend(keywords)
+    if not query_parts:
+        query_parts.append('"State Farm Claim"')
+    query = " ".join(query_parts)
+
+    cache_key = hashlib.md5(query.encode()).hexdigest()
+    cache_path = os.path.join(CACHE_DIR, f"gmail_messages_{cache_key}.json")
     if use_cache and os.path.exists(cache_path):
         with open(cache_path, "r", encoding="utf-8") as f:
             return json.load(f)
 
     creds = get_credentials()
     service = build("gmail", "v1", credentials=creds)
-    query = '"State Farm Claim"'
     resp = service.users().messages().list(userId="me", q=query).execute()
     messages = []
     for item in tqdm(resp.get("messages", []), desc="Downloading emails"):
@@ -559,7 +572,10 @@ def visualize(G: nx.DiGraph) -> None:
 
 def main():
     refresh = "--refresh" in sys.argv
-    messages = fetch_claim_emails(use_cache=not refresh)
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    claim_number = args[0] if args else None
+    keywords = args[1:] if len(args) > 1 else None
+    messages = fetch_claim_emails(claim_number=claim_number, keywords=keywords, use_cache=not refresh)
     texts = download_and_extract(messages, use_cache=not refresh)
     events = parse_events(texts)
     G = build_graph(events)
