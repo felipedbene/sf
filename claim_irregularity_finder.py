@@ -417,7 +417,8 @@ def build_graph(events: List[Dict], max_back_links: int = 1) -> nx.DiGraph:
 
     G = nx.DiGraph()
     for evt in tqdm(events, desc="Adding nodes"):
-        G.add_node(evt["id"], **evt)
+        clean = {k: v for k, v in evt.items() if v is not None}
+        G.add_node(evt["id"], **clean)
     for i, evt in enumerate(tqdm(events, desc="Linking events")):
         details_lower = evt["details"].lower()
         if "in response to" in details_lower or "following" in details_lower:
