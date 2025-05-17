@@ -249,8 +249,32 @@ def detect_irregularities(events: List[Dict], use_cache: bool = True) -> List[Di
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": events_json},
     ]
-    resp = openai.chat.completions.create(model="gpt-3.5-turbo", messages=messages)
-    result = json.loads(resp.choices[0].message.content)
+    try:
+        resp = openai.chat.completions.create(
+            model="gpt-3.5-turbo", messages=messages
+        )
+    except Exception as exc:
+        print(f"OpenAI API request failed: {exc}")
+        return []
+
+    content = resp.choices[0].message.content
+    try:
+        result = json.loads(content)
+    except json.JSONDecodeError:
+        # Sometimes the assistant responds with a preamble or other text
+        # surrounding the JSON. Attempt to extract the JSON block.
+        match = re.search(r"\{.*\}\s*$", content, re.DOTALL)
+        if match:
+            try:
+                result = json.loads(match.group(0))
+            except json.JSONDecodeError:
+                print("Could not parse irregularities response:")
+                print(content)
+                return []
+        else:
+            print("Could not parse irregularities response:")
+            print(content)
+            return []
     with open(cache_path, "w", encoding="utf-8") as f:
         json.dump(result, f)
     return result
