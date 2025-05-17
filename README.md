@@ -36,7 +36,7 @@ python claim_irregularity_finder.py
 The script will:
 
 1. Fetch unread Gmail messages containing "State Farm Claim".
-2. Download any attachments to the `evidence` directory and extract text from PDFs or text files.
+2. Download any attachments to the `evidence` directory and extract text from PDFs or text files.  Common headers, page numbers, and line-item table rows are removed during preprocessing.
 3. Parse events from the collected text and build a directed graph with NetworkX.
 4. Send the list of events to the OpenAI API to detect irregular patterns.
 5. Annotate the graph with the irregularity results, print a summary table, and produce `claim_irregularity_map.html` and `claim_graph.graphml`.
