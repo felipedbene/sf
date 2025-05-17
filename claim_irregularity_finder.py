@@ -379,21 +379,31 @@ def parse_events(texts: List) -> List[Dict]:
                 )
     return events
 
-def build_graph(events: List[Dict]) -> nx.DiGraph:
+def build_graph(events: List[Dict], max_back_links: int = 1) -> nx.DiGraph:
+    """Return a directed graph linking each event to earlier ones.
+
+    Nodes are added for each event in chronological order. By default an event
+    links only to the immediately preceding event. ``max_back_links`` controls
+    how many prior events may connect to the current one. If the event ``details``
+    contain the phrases "in response to" or "following" (case insensitive), the
+    event links to **all** previous events regardless of this limit.
+    """
+
     G = nx.DiGraph()
     for evt in tqdm(events, desc="Adding nodes"):
         G.add_node(evt["id"], **evt)
     for i, evt in enumerate(tqdm(events, desc="Linking events")):
-        ts_i = datetime.fromisoformat(evt["timestamp"])
-        for j in range(i):
-            prev = events[j]
-            ts_j = datetime.fromisoformat(prev["timestamp"])
-            if any(x in evt["details"].lower() for x in ["in response to", "following"]):
-                G.add_edge(prev["id"], evt["id"])
+        details_lower = evt["details"].lower()
+        if "in response to" in details_lower or "following" in details_lower:
+            back_range = range(i)
+        else:
+            if max_back_links is None or max_back_links <= 0:
+                back_range = []
             else:
-                diff_seconds = (ts_i - ts_j).total_seconds()
-                if 0 < diff_seconds <= 86400:
-                    G.add_edge(prev["id"], evt["id"])
+                back_range = range(max(0, i - max_back_links), i)
+        for j in back_range:
+            prev = events[j]
+            G.add_edge(prev["id"], evt["id"])
     return G
 
 def detect_irregularities(events: List[Dict], use_cache: bool = True) -> List[Dict]:
