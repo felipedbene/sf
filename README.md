@@ -30,15 +30,16 @@ Export your API key in the environment before running the script:
 
 ## Usage
 
-Run the main script to fetch claim emails, analyze them, and generate the visualization:
+Run the main script to fetch claim emails, analyze them, and generate the visualization.
+Pass the claim number followed by any additional keywords to refine the Gmail search:
 
 ```bash
-python claim_irregularity_finder.py
+python claim_irregularity_finder.py 13-83R9-01P statefarm claim brett riley
 ```
 
 The script will:
 
-1. Fetch unread Gmail messages containing "State Farm Claim".
+1. Fetch unread Gmail messages matching a claim number and optional keywords.
 2. Download any attachments to the `evidence` directory and extract text from PDFs or text files.  Common headers, page numbers, and line-item table rows are removed during preprocessing.
 3. Parse events from the collected text and build a directed graph with NetworkX.
 4. Send the list of events to the OpenAI API to detect irregular patterns.
