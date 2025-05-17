@@ -267,7 +267,8 @@ def visualize(G: nx.DiGraph) -> None:
         # manifest as 'NoneType has no attribute "render"'.  Attempt to
         # reload the default template and retry once before giving up.
         try:
-            net.template = net.get_template()
+            if hasattr(net, "get_template"):
+                net.template = net.get_template()
             net.show(html_file)
         except Exception as exc:
             print(f"Visualization failed: {exc}")
