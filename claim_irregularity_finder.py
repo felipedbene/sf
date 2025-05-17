@@ -203,23 +203,23 @@ def parse_events(texts: List[str]) -> List[Dict]:
         r"(?P<timestamp>(?:\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/\d{4})"
         r"[ T]\d{1,2}:\d{2}(?::\d{2})?(?:\s?[APap][Mm])?)"
     )
-    next_ts = r"(?=\n(?:\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/\d{4})[ T]\d{1,2}:\d{2}|\n?$)"
+    next_ts = r"(?=(?:\r?\n)+(?:\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/\d{4})[ T]\d{1,2}:\d{2}|\Z)"
     patterns = [
         re.compile(
             ts_part
-            + r"\s*(?P<actor>[^:]+):\s*(?P<action>[^.\n]+)\.?\s*(?P<details>.*?)"
+            + r"[ \t]*(?P<actor>[^:]+):[ \t]*(?P<action>[^.\n]+)\.?[ \t]*(?P<details>.*?)"
             + next_ts,
             re.DOTALL,
         ),
         re.compile(
             ts_part
-            + r"\s*-\s*(?P<actor>[^-]+)\s*-\s*(?P<action>[^-\n]+)\s*-\s*(?P<details>.*?)"
+            + r"[ \t]*-[ \t]*(?P<actor>[^-]+)[ \t]*-[ \t]*(?P<action>[^-\n]+)[ \t]*-[ \t]*(?P<details>.*?)"
             + next_ts,
             re.DOTALL,
         ),
         re.compile(
             ts_part
-            + r"\s+(?P<actor>[^-:\n]+)\s+(?P<action>[^-:\n]+)\s*(?P<details>.*?)"
+            + r"[ \t]+(?P<actor>[^-:\n]+)[ \t]+(?P<action>[^-:\n]+)[ \t]*(?P<details>.*?)"
             + next_ts,
             re.DOTALL,
         ),
