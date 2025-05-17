@@ -9,7 +9,7 @@ This project scans claim-related emails to identify irregularities in the claim 
    Install required packages with pip:
 
    ```bash
-   pip install google-auth google-auth-oauthlib google-api-python-client pdfplumber pandas networkx pyvis openai
+   pip install google-auth google-auth-oauthlib google-api-python-client pdfplumber pandas networkx pyvis openai jinja2
    ```
 
 2. **Gmail Credentials**
