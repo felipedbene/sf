@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#00ff00", "id": "evt_001", "label": "Page\n1", "shape": "dot", "title": "Estimate\nRO Number:\n2025 RIVI R1S Adventure w/Dual Motor Large Pack 4D UTV Electric- Electric GRY\nEstimate Totals Discount $ Markup $ Rate $ Total Hours Total $\nParts 1,359.02\nLabor, Body 80.00 6.7 536.00\nLabor, Refinish 80.00 5.1 408.00\nMaterial, Paint 45.00 5.1 229.50\nMiscellaneous 488.00\nSubtotal 3,020.52\nSales Tax 164.87\nGrand Total 3,185.39\nNet Total 3,185.39\nEstimate Version Total $\nOriginal 3,185.39\nInsurance Total $: 3,185.39\nReceived from Insurance $: 0.00\nBalance due from Insurance $: 3,185.39\nCustomer Total $: 0.00\nReceived from Customer $: 0.00\nBalance due from Customer $: 0.00\n***CONTACT KATE GOMEZ FOR PHOTOS/SUPPORTING DOCUMENTS; KGOMEZ@GOLDCOASTAUTOBODY.COM; 312-525-9682\n***IMPORTANT: *** If you\u2019re going through insurance, please keep any payments sent to you by the insurance company and have them available at\nthe end of repairs. Please contact the insurance to confirm if any payments have been made on the claim/where payments have been sent/and the\namounts. If signing over an insurance check or writing a check, please ensure to have a driver\u2019s license to match. All costs for repairs will be due at the\ntime of pick up.\n***Payment Method Disclaimer: ***\nWe charge a 3% credit card fee (to cover the cost of credit card acceptance). No fee applies when using the following payment methods: Debit Cards,\nInsurance Checks, Cashier Checks, Personal Checks, Cash. If paying with a Personal Check, please have your driver\u2019s license to match.\nT = Taxable Item, RPD = Related Prior Damage, AA = Appearance Allowance, UPD = Unrelated Prior Damage, PDR = Paintless Dent Repair, A/M = Aftermarket, Rechr = Rechromed, Reman =\nRemanufactured, OEM = New Original Equipment Manufacturer, Recor = Re-cored, RECOND = Reconditioned, LKQ = Like Kind Quality or Used, Diag = Diagnostic, Elec = Electrical, Mech =\nMechanical, Ref = Refinish, Struc = Structural\nReason: "}, {"color": "#00ff00", "id": "evt_002", "label": "Page\n2", "shape": "dot", "title": "\nReason: "}, {"color": "#00ff00", "id": "evt_003", "label": "Page 1\n900 W DIVISION ST, CHICAGO, IL 60642\nPhone\n(312) 787-0333, Fax: (312) 787-8997", "shape": "dot", "title": "Image Report\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\nRO Number: Claim Number: PENDING\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\nComments: Comments:\nComments: Comments:\nComments: Comments:\nReason: "}, {"color": "#00ff00", "id": "evt_004", "label": "Page 2\n900 W DIVISION ST, CHICAGO, IL 60642\nPhone\n(312) 787-0333, Fax: (312) 787-8997", "shape": "dot", "title": "Image Report\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\nRO Number: Claim Number: PENDING\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\nComments: Comments:\nComments: Comments:\nComments: Comments:\nReason: "}, {"color": "#00ff00", "id": "evt_005", "label": "Page 3\n900 W DIVISION ST, CHICAGO, IL 60642\nPhone\n(312) 787-0333, Fax: (312) 787-8997", "shape": "dot", "title": "Image Report\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\nRO Number: Claim Number: PENDING\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\nComments: Comments:\nComments: Comments:\nComments: Comments:\nReason: "}, {"color": "#00ff00", "id": "evt_006", "label": "Page 4\n900 W DIVISION ST, CHICAGO, IL 60642\nPhone\n(312) 787-0333, Fax: (312) 787-8997", "shape": "dot", "title": "Image Report\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\nRO Number: Claim Number: PENDING\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\nComments:\nReason: "}, {"color": "#00ff00", "id": "evt_007", "label": "Page\n1", "shape": "dot", "title": "900 W DIVISION ST, CHICAGO, IL 60642\nPhone: (312) 787-0333, Fax: (312) 787-8997\nImage Report\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\nRO Number: Claim Number: PENDING\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\nComments: Comments:\nComments: Comments:\nComments: Comments:\nReason: "}, {"color": "#00ff00", "id": "evt_008", "label": "Page\n2", "shape": "dot", "title": "900 W DIVISION ST, CHICAGO, IL 60642\nPhone: (312) 787-0333, Fax: (312) 787-8997\nImage Report\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\nRO Number: Claim Number: PENDING\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\nComments: Comments:\nComments: Comments:\nComments: Comments:\nReason: "}, {"color": "#00ff00", "id": "evt_009", "label": "Page\n3", "shape": "dot", "title": "900 W DIVISION ST, CHICAGO, IL 60642\nPhone: (312) 787-0333, Fax: (312) 787-8997\nImage Report\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\nRO Number: Claim Number: PENDING\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\nComments: Comments:\nComments: Comments:\nComments: Comments:\nReason: "}, {"color": "#00ff00", "id": "evt_010", "label": "Page\n4", "shape": "dot", "title": "900 W DIVISION ST, CHICAGO, IL 60642\nPhone: (312) 787-0333, Fax: (312) 787-8997\nImage Report\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\nRO Number: Claim Number: PENDING\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\nComments:\nReason: "}, {"color": "#00ff00", "id": "evt_011", "label": "Page\n5", "shape": "dot", "title": "\nReason: "}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "evt_001", "to": "evt_002"}, {"arrows": "to", "from": "evt_002", "to": "evt_003"}, {"arrows": "to", "from": "evt_003", "to": "evt_004"}, {"arrows": "to", "from": "evt_004", "to": "evt_005"}, {"arrows": "to", "from": "evt_005", "to": "evt_006"}, {"arrows": "to", "from": "evt_006", "to": "evt_007"}, {"arrows": "to", "from": "evt_007", "to": "evt_008"}, {"arrows": "to", "from": "evt_008", "to": "evt_009"}, {"arrows": "to", "from": "evt_009", "to": "evt_010"}, {"arrows": "to", "from": "evt_010", "to": "evt_011"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
