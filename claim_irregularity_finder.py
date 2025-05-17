@@ -263,7 +263,7 @@ def detect_irregularities(events: List[Dict], use_cache: bool = True) -> List[Di
     except json.JSONDecodeError:
         # Sometimes the assistant responds with a preamble or other text
         # surrounding the JSON. Attempt to extract the JSON block.
-        match = re.search(r"\{.*\}\s*$", content, re.DOTALL)
+        match = re.search(r"(\{.*\}|\[.*\])\s*$", content, re.DOTALL)
         if match:
             try:
                 result = json.loads(match.group(0))
@@ -296,7 +296,10 @@ def annotate_graph(G: nx.DiGraph, irregulars: List[Dict]) -> None:
                 continue
         evt_id = irr.get("id") or irr.get("event_id")
         if evt_id in G.nodes:
-            G.nodes[evt_id]["irregularity_score"] = irr.get("score")
+            score = irr.get("score")
+            if score is None:
+                score = irr.get("severity_score") or irr.get("severity")
+            G.nodes[evt_id]["irregularity_score"] = score
             G.nodes[evt_id]["irregularity_reason"] = irr.get("reason")
 
 def summarize_irregularities(G: nx.DiGraph, irregulars: List[Dict]) -> pd.DataFrame:
@@ -321,7 +324,11 @@ def summarize_irregularities(G: nx.DiGraph, irregulars: List[Dict]) -> pd.DataFr
                 "Actor": node.get("actor"),
                 "Action": node.get("action"),
                 "Timestamp": node.get("timestamp"),
-                "Score": irr.get("score"),
+                "Score": irr.get("score")
+                if irr.get("score") is not None
+                else irr.get("severity_score")
+                if irr.get("severity_score") is not None
+                else irr.get("severity"),
                 "Reason": irr.get("reason"),
             }
         )
