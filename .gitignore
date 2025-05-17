@@ -11,4 +11,11 @@ credentials.json
 # Execution Data
 *.eml
 evidence/
-
+*.json
+*.graphml
+*.dot
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.gif
