@@ -270,7 +270,10 @@ def detect_irregularities(events: List[Dict], use_cache: bool = True) -> List[Di
     cache_path = os.path.join(CACHE_DIR, f"openai_{cache_key}.json")
     if use_cache and os.path.exists(cache_path):
         with open(cache_path, "r", encoding="utf-8") as f:
-            return json.load(f)
+            result = json.load(f)
+        if not result:
+            print("No irregularities found")
+        return result
 
     openai.api_key = os.environ.get("OPENAI_API_KEY")
     system_prompt = (
@@ -289,6 +292,7 @@ def detect_irregularities(events: List[Dict], use_cache: bool = True) -> List[Di
         )
     except Exception as exc:
         print(f"OpenAI API request failed: {exc}")
+        print("No irregularities found")
         return []
 
     content = resp.choices[0].message.content
@@ -304,13 +308,17 @@ def detect_irregularities(events: List[Dict], use_cache: bool = True) -> List[Di
             except json.JSONDecodeError:
                 print("Could not parse irregularities response:")
                 print(content)
+                print("No irregularities found")
                 return []
         else:
             print("Could not parse irregularities response:")
             print(content)
+            print("No irregularities found")
             return []
     with open(cache_path, "w", encoding="utf-8") as f:
         json.dump(result, f)
+    if not result:
+        print("No irregularities found")
     return result
 
 def annotate_graph(G: nx.DiGraph, irregulars: List[Dict]) -> None:
