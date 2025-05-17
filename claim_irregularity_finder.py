@@ -1,3 +1,5 @@
+# requirements: google-auth google-auth-oauthlib google-api-python-client pdfplumber pandas networkx pyvis openai jinja2 tqdm html2text pytesseract pillow
+
 import os
 import re
 import json
@@ -11,13 +13,22 @@ from email import policy
 from email.parser import BytesParser
 from html import unescape
 
-def _strip_html(html: str) -> str:
-    """Return plaintext from HTML content using simple tag removal."""
-    # Replace common block tags with newlines to preserve structure
-    html = re.sub(r"<(br|p|div|li|tr)[^>]*>", "\n", html, flags=re.I)
-    # Remove all remaining tags
-    text = re.sub(r"<[^>]+>", "", html)
-    return unescape(text)
+def _html_to_text(html: str) -> str:
+    """Convert HTML to plain text using html2text if available."""
+    try:
+        import html2text
+
+        h = html2text.HTML2Text()
+        h.ignore_links = True
+        h.ignore_images = True
+        return h.handle(html)
+    except Exception:
+        logging.debug("html2text unavailable; falling back to regex stripping")
+        # Replace common block tags with newlines to preserve structure
+        html = re.sub(r"<(br|p|div|li|tr)[^>]*>", "\n", html, flags=re.I)
+        # Remove all remaining tags
+        text = re.sub(r"<[^>]+>", "", html)
+        return unescape(text)
 
 import logging
 import pdfplumber
@@ -34,6 +45,8 @@ SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
 EVIDENCE_DIR = "evidence"
 CACHE_DIR = "cache"
 
+# Configure logging
+logging.basicConfig(level=logging.DEBUG, format="%(levelname)s:%(message)s")
 # Suppress verbose pdfminer warnings such as missing CropBox messages
 logging.getLogger("pdfminer").setLevel(logging.ERROR)
 
@@ -77,22 +90,6 @@ def fetch_claim_emails(use_cache: bool = True) -> List[dict]:
 
     return messages
 
-def _save_attachment(service, msg_id, part, path):
-    att_id = part["body"].get("attachmentId")
-    if not att_id:
-        return
-    if os.path.exists(path):
-        return
-    att = (
-        service.users()
-        .messages()
-        .attachments()
-        .get(userId="me", messageId=msg_id, id=att_id)
-        .execute()
-    )
-    data = base64.urlsafe_b64decode(att["data"].encode("UTF-8"))
-    with open(path, "wb") as f:
-        f.write(data)
 
 
 def _extract_eml_text(path: str) -> str:
@@ -109,7 +106,7 @@ def _extract_eml_text(path: str) -> str:
                     charset = part.get_content_charset() or "utf-8"
                     text = payload.decode(charset, errors="ignore")
                     if ctype == "text/html":
-                        text = _strip_html(text)
+                        text = _html_to_text(text)
                     parts.append(text)
     else:
         payload = msg.get_payload(decode=True)
@@ -119,23 +116,84 @@ def _extract_eml_text(path: str) -> str:
     return "\n".join(parts)
 
 
+DEFAULT_JUNK_PATTERNS = [
+    r"^\s*Page\s+\d+",
+    r"GOLD COAST AUTO BODY INC",
+    r"^\s*(?:\d+/\d+/\d+|\d+)\s+E\d{2}\b",
+]
+
+
+def _load_junk_patterns() -> List[re.Pattern]:
+    """Load regex patterns for text cleanup from config.json if present."""
+    patterns = list(DEFAULT_JUNK_PATTERNS)
+    if os.path.exists("config.json"):
+        try:
+            with open("config.json", "r", encoding="utf-8") as f:
+                cfg = json.load(f)
+            patterns.extend(cfg.get("junk_patterns", []))
+        except Exception as exc:
+            logging.debug(f"Failed to load config.json: {exc}")
+    return [re.compile(p, flags=re.I) for p in patterns]
+
+
+JUNK_PATTERNS = _load_junk_patterns()
+
+
 def _clean_text(text: str) -> str:
-    """Remove common header/footer patterns from extracted text."""
+    """Remove configured junk lines from extracted text."""
+    patterns = globals().get("JUNK_PATTERNS")
+    if patterns is None:
+        default_pats = [
+            r"^\s*Page\s+\d+",
+            r"GOLD COAST AUTO BODY INC",
+            r"^\s*(?:\d+/\d+/\d+|\d+)\s+E\d{2}\b",
+        ]
+        patterns = [re.compile(p, flags=re.I) for p in default_pats]
     cleaned_lines = []
-    item_pat = re.compile(r"^\s*(?:\d+/\d+/\d+|\d+)\s+E\d{2}\b")
     for line in text.splitlines():
-        if re.search(r"^\s*Page\s+\d+", line):
-            continue
-        if re.search(r"GOLD COAST AUTO BODY INC", line, re.I):
-            continue
-        if item_pat.search(line):
+        if any(p.search(line) for p in patterns):
             continue
         cleaned_lines.append(line)
     return "\n".join(cleaned_lines)
 
 
-def download_and_extract(messages: List[dict], use_cache: bool = True) -> List[str]:
-    """Download attachments and extract text from emails and PDFs."""
+def _save_attachment(service, msg_id: str, part: dict, folder: str) -> Union[str, None]:
+    """Save attachment to folder, recursing into nested parts."""
+    if part.get("parts"):
+        for sub in part["parts"]:
+            _save_attachment(service, msg_id, sub, folder)
+        return None
+
+    att_id = part.get("body", {}).get("attachmentId")
+    if not att_id:
+        return None
+
+    filename = part.get("filename") or "part"
+    filename = re.sub(r"[\\/*?:\"<>|]", "_", filename)
+    path = os.path.join(folder, filename)
+    if os.path.exists(path):
+        return path
+
+    try:
+        att = (
+            service.users()
+            .messages()
+            .attachments()
+            .get(userId="me", messageId=msg_id, id=att_id)
+            .execute()
+        )
+        data = base64.urlsafe_b64decode(att["data"].encode("UTF-8"))
+        with open(path, "wb") as f:
+            f.write(data)
+        logging.debug(f"Saved attachment {path}")
+        return path
+    except Exception as exc:
+        logging.debug(f"Failed saving attachment {filename}: {exc}")
+        return None
+
+
+def download_and_extract(messages: List[dict], use_cache: bool = True) -> List[Dict]:
+    """Download attachments and extract text and OCR from emails."""
     os.makedirs(EVIDENCE_DIR, exist_ok=True)
     os.makedirs(CACHE_DIR, exist_ok=True)
     cache_path = os.path.join(CACHE_DIR, "texts.json")
@@ -145,31 +203,99 @@ def download_and_extract(messages: List[dict], use_cache: bool = True) -> List[s
 
     creds = get_credentials()
     service = build("gmail", "v1", credentials=creds)
-    texts = []
+
+    texts: List[Dict] = []
+    index_entries = []
+
     for msg in tqdm(messages, desc="Processing messages"):
-        msg_id = msg["id"]
-        payload = msg.get("payload", {})
-        parts = payload.get("parts", [])
-        if payload.get("body", {}).get("data"):
-            body = base64.urlsafe_b64decode(payload["body"]["data"]).decode("utf-8")
-            texts.append(body)
-        for part in parts:
-            filename = part.get("filename") or "part"
-            # Sanitize filename to avoid invalid characters on Windows
-            filename = re.sub(r"[\\/*?:\"<>|]", "_", filename)
+        msg_id = msg.get("id")
+        headers = {h["name"]: h.get("value", "") for h in msg.get("payload", {}).get("headers", [])}
+        sender = headers.get("From", "unknown")
+        date_ts = int(msg.get("internalDate", "0")) / 1000
+        date_str = datetime.fromtimestamp(date_ts).strftime("%Y-%m-%d")
+        folder_name = f"{date_str}_{re.sub(r'[^a-zA-Z0-9_]+', '_', sender)}"
+        folder_path = os.path.join(EVIDENCE_DIR, folder_name)
+        os.makedirs(folder_path, exist_ok=True)
+
+        meta = {
+            "msg_id": msg_id,
+            "sender": sender,
+            "date": date_str,
+            "message_id": headers.get("Message-ID"),
+            "in_reply_to": headers.get("In-Reply-To"),
+            "references": headers.get("References"),
+        }
+
+        def process_part(part: dict):
+            if part.get("parts"):
+                for sp in part["parts"]:
+                    process_part(sp)
+                return
+
             mime = part.get("mimeType", "")
-            if part.get("body", {}).get("attachmentId"):
-                path = os.path.join(EVIDENCE_DIR, f"{msg_id}_{filename}")
-                _save_attachment(service, msg_id, part, path)
+            body = part.get("body", {})
+            data = body.get("data")
+
+            if data and not body.get("attachmentId") and mime in ("text/plain", "text/html"):
+                try:
+                    text = base64.urlsafe_b64decode(data).decode("utf-8", errors="ignore")
+                    if mime == "text/html":
+                        text = _html_to_text(text)
+                    texts.append({"text": text, **meta})
+                except Exception as exc:
+                    logging.debug(f"Failed to decode inline text: {exc}")
+                return
+
+            path = _save_attachment(service, msg_id, part, folder_path)
+            if not path:
+                return
+
+            index_entries.append({"msg_id": msg_id, "filename": os.path.basename(path), "sender": sender, "date": date_str, "mime_type": mime})
+
+            try:
                 if mime == "application/pdf":
                     with pdfplumber.open(path) as pdf:
                         pdf_text = "\n".join(p.extract_text() or "" for p in pdf.pages)
-                    texts.append(_clean_text(pdf_text))
+                    texts.append({"text": _clean_text(pdf_text), **meta})
                 elif mime.startswith("text/"):
                     with open(path, "r", encoding="utf-8", errors="ignore") as f:
-                        texts.append(f.read())
-                elif mime == "message/rfc822" or filename.lower().endswith(".eml"):
-                    texts.append(_extract_eml_text(path))
+                        texts.append({"text": f.read(), **meta})
+                elif mime == "message/rfc822" or path.lower().endswith(".eml"):
+                    texts.append({"text": _extract_eml_text(path), **meta})
+                elif mime in ("image/jpeg", "image/png"):
+                    try:
+                        from PIL import Image
+                        import pytesseract
+
+                        ocr_text = pytesseract.image_to_string(Image.open(path))
+                        texts.append({"text": ocr_text, **meta})
+                    except Exception as exc:
+                        logging.debug(f"OCR failed for {path}: {exc}")
+            except Exception as exc:
+                logging.debug(f"Failed processing attachment {path}: {exc}")
+
+        payload = msg.get("payload", {})
+        process_part(payload)
+
+    # evidence/index.json
+    try:
+        with open(os.path.join(EVIDENCE_DIR, "index.json"), "w", encoding="utf-8") as f:
+            json.dump(index_entries, f, indent=2)
+    except Exception as exc:
+        logging.debug(f"Failed writing index.json: {exc}")
+
+    try:
+        with open(os.path.join(EVIDENCE_DIR, "evidence_summary.csv"), "w", encoding="utf-8") as f:
+            f.write("msg_id,sender,date,filename,preview\n")
+            for entry in index_entries:
+                text_snippets = [t["text"] for t in texts if t["msg_id"] == entry["msg_id"]]
+                preview = " ".join(text_snippets)[:200].replace("\n", " ").replace("\r", " ")
+                f.write(
+                    f"{entry['msg_id']},{entry['sender']},{entry['date']},{entry['filename']},\"{preview}\"\n"
+                )
+    except Exception as exc:
+        logging.debug(f"Failed writing evidence_summary.csv: {exc}")
+
     with open(cache_path, "w", encoding="utf-8") as f:
         json.dump(texts, f)
     return texts
@@ -195,7 +321,7 @@ def _normalize_timestamp(ts: str) -> str:
     return ts
 
 
-def parse_events(texts: List[str]) -> List[Dict]:
+def parse_events(texts: List) -> List[Dict]:
     """Extract events from various timestamped formats."""
     events: List[Dict] = []
     seen = set()
@@ -225,7 +351,13 @@ def parse_events(texts: List[str]) -> List[Dict]:
         ),
     ]
     count = 0
-    for text in tqdm(texts, desc="Parsing events"):
+    for item in tqdm(texts, desc="Parsing events"):
+        meta = {}
+        if isinstance(item, dict):
+            text = item.get("text", "")
+            meta = {k: item.get(k) for k in ("msg_id", "sender", "date", "message_id", "in_reply_to", "references")}
+        else:
+            text = item
         text = _clean_text(text)
         for pattern in patterns:
             for m in pattern.finditer(text):
@@ -242,6 +374,7 @@ def parse_events(texts: List[str]) -> List[Dict]:
                         "action": m.group("action").strip(),
                         "timestamp": _normalize_timestamp(m.group("timestamp")),
                         "details": m.groupdict().get("details", "").strip(),
+                        **meta,
                     }
                 )
     return events
