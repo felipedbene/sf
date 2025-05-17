@@ -5,6 +5,7 @@ import base64
 from datetime import datetime
 from typing import List, Dict
 
+import logging
 import pdfplumber
 import pandas as pd
 import networkx as nx
@@ -16,6 +17,9 @@ from pyvis.network import Network
 
 SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
 EVIDENCE_DIR = "evidence"
+
+# Suppress verbose pdfminer warnings such as missing CropBox messages
+logging.getLogger("pdfminer").setLevel(logging.ERROR)
 
 
 def get_credentials() -> Credentials:
@@ -147,7 +151,20 @@ def detect_irregularities(events: List[Dict]) -> List[Dict]:
     return json.loads(resp.choices[0].message.content)
 
 def annotate_graph(G: nx.DiGraph, irregulars: List[Dict]) -> None:
+    # OpenAI responses may occasionally be JSON strings or contain items that are
+    # themselves JSON encoded. Normalize them into dictionaries before use.
+    if isinstance(irregulars, str):
+        try:
+            irregulars = json.loads(irregulars)
+        except json.JSONDecodeError:
+            print("Could not parse irregularities response")
+            return
     for irr in irregulars:
+        if isinstance(irr, str):
+            try:
+                irr = json.loads(irr)
+            except json.JSONDecodeError:
+                continue
         evt_id = irr.get("id") or irr.get("event_id")
         if evt_id in G.nodes:
             G.nodes[evt_id]["irregularity_score"] = irr.get("score")
@@ -155,7 +172,18 @@ def annotate_graph(G: nx.DiGraph, irregulars: List[Dict]) -> None:
 
 def summarize_irregularities(G: nx.DiGraph, irregulars: List[Dict]) -> pd.DataFrame:
     rows = []
+    if isinstance(irregulars, str):
+        try:
+            irregulars = json.loads(irregulars)
+        except json.JSONDecodeError:
+            print("Could not parse irregularities response")
+            irregulars = []
     for irr in irregulars:
+        if isinstance(irr, str):
+            try:
+                irr = json.loads(irr)
+            except json.JSONDecodeError:
+                continue
         evt_id = irr.get("id") or irr.get("event_id")
         node = G.nodes.get(evt_id, {})
         rows.append(
