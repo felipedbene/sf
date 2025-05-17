@@ -238,8 +238,10 @@ def build_graph(events: List[Dict]) -> nx.DiGraph:
             ts_j = datetime.fromisoformat(prev["timestamp"])
             if any(x in evt["details"].lower() for x in ["in response to", "following"]):
                 G.add_edge(prev["id"], evt["id"])
-            elif 0 < (ts_i - ts_j).days <= 1:
-                G.add_edge(prev["id"], evt["id"])
+            else:
+                diff_seconds = (ts_i - ts_j).total_seconds()
+                if 0 < diff_seconds <= 86400:
+                    G.add_edge(prev["id"], evt["id"])
     return G
 
 def detect_irregularities(events: List[Dict], use_cache: bool = True) -> List[Dict]:
