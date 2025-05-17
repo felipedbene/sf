@@ -119,6 +119,18 @@ def _extract_eml_text(path: str) -> str:
     return "\n".join(parts)
 
 
+def _clean_text(text: str) -> str:
+    """Remove common header/footer patterns from extracted text."""
+    cleaned_lines = []
+    for line in text.splitlines():
+        if re.search(r"^\s*Page\s+\d+", line):
+            continue
+        if re.search(r"GOLD COAST AUTO BODY INC", line, re.I):
+            continue
+        cleaned_lines.append(line)
+    return "\n".join(cleaned_lines)
+
+
 def download_and_extract(messages: List[dict], use_cache: bool = True) -> List[str]:
     """Download attachments and extract text from emails and PDFs."""
     os.makedirs(EVIDENCE_DIR, exist_ok=True)
@@ -149,7 +161,7 @@ def download_and_extract(messages: List[dict], use_cache: bool = True) -> List[s
                 if mime == "application/pdf":
                     with pdfplumber.open(path) as pdf:
                         pdf_text = "\n".join(p.extract_text() or "" for p in pdf.pages)
-                    texts.append(pdf_text)
+                    texts.append(_clean_text(pdf_text))
                 elif mime.startswith("text/"):
                     with open(path, "r", encoding="utf-8", errors="ignore") as f:
                         texts.append(f.read())
@@ -195,6 +207,7 @@ def parse_events(texts: List[str]) -> List[Dict]:
     ]
     count = 0
     for text in tqdm(texts, desc="Parsing events"):
+        text = _clean_text(text)
         for pattern in patterns:
             for m in pattern.finditer(text):
                 key = (m.group("timestamp"), m.group("actor"), m.group("action"), m.groupdict().get("details", ""))
