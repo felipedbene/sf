@@ -122,10 +122,13 @@ def _extract_eml_text(path: str) -> str:
 def _clean_text(text: str) -> str:
     """Remove common header/footer patterns from extracted text."""
     cleaned_lines = []
+    item_pat = re.compile(r"^\s*(?:\d+/\d+/\d+|\d+)\s+E\d{2}\b")
     for line in text.splitlines():
         if re.search(r"^\s*Page\s+\d+", line):
             continue
         if re.search(r"GOLD COAST AUTO BODY INC", line, re.I):
+            continue
+        if item_pat.search(line):
             continue
         cleaned_lines.append(line)
     return "\n".join(cleaned_lines)
