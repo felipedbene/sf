@@ -11,6 +11,9 @@ credentials.json
 # Execution Data
 *.eml
 evidence/
+cache/
+lib/
+output/
 *.json
 *.graphml
 *.dot
