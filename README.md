@@ -42,6 +42,10 @@ The script will:
 5. Annotate the graph with the irregularity results, print a summary table, and produce `claim_irregularity_map.html` and `claim_graph.graphml`.
 6. Display progress bars in the terminal while processing messages, parsing events, and building the graph.
 
+The script caches downloaded emails, extracted text, and OpenAI analysis results
+in the `cache` directory. Run the script with `--refresh` to ignore the cache
+and fetch fresh data.
+
 ## Output Files
 
 - **claim_irregularity_map.html** – interactive visualization of event relationships with irregularities highlighted.

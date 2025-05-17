@@ -2,6 +2,8 @@ import os
 import re
 import json
 import base64
+import hashlib
+import sys
 from datetime import datetime
 from typing import List, Dict
 
@@ -18,6 +20,7 @@ from tqdm import tqdm
 
 SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
 EVIDENCE_DIR = "evidence"
+CACHE_DIR = "cache"
 
 # Suppress verbose pdfminer warnings such as missing CropBox messages
 logging.getLogger("pdfminer").setLevel(logging.ERROR)
@@ -35,8 +38,14 @@ def get_credentials() -> Credentials:
             token.write(creds.to_json())
     return creds
 
-def fetch_claim_emails() -> List[dict]:
+def fetch_claim_emails(use_cache: bool = True) -> List[dict]:
     """Fetch emails for 'State Farm claim 13-83R9-01P' thread."""
+    os.makedirs(CACHE_DIR, exist_ok=True)
+    cache_path = os.path.join(CACHE_DIR, "gmail_messages.json")
+    if use_cache and os.path.exists(cache_path):
+        with open(cache_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
     creds = get_credentials()
     service = build("gmail", "v1", credentials=creds)
     query = '"State Farm Claim"'
@@ -50,11 +59,17 @@ def fetch_claim_emails() -> List[dict]:
             .execute()
         )
         messages.append(msg)
+
+    with open(cache_path, "w", encoding="utf-8") as f:
+        json.dump(messages, f)
+
     return messages
 
 def _save_attachment(service, msg_id, part, path):
     att_id = part["body"].get("attachmentId")
     if not att_id:
+        return
+    if os.path.exists(path):
         return
     att = (
         service.users()
@@ -68,9 +83,15 @@ def _save_attachment(service, msg_id, part, path):
         f.write(data)
 
 
-def download_and_extract(messages: List[dict]) -> List[str]:
+def download_and_extract(messages: List[dict], use_cache: bool = True) -> List[str]:
     """Download attachments and extract text from emails and PDFs."""
     os.makedirs(EVIDENCE_DIR, exist_ok=True)
+    os.makedirs(CACHE_DIR, exist_ok=True)
+    cache_path = os.path.join(CACHE_DIR, "texts.json")
+    if use_cache and os.path.exists(cache_path):
+        with open(cache_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
     creds = get_credentials()
     service = build("gmail", "v1", credentials=creds)
     texts = []
@@ -96,6 +117,8 @@ def download_and_extract(messages: List[dict]) -> List[str]:
                 elif mime.startswith("text/"):
                     with open(path, "r", encoding="utf-8", errors="ignore") as f:
                         texts.append(f.read())
+    with open(cache_path, "w", encoding="utf-8") as f:
+        json.dump(texts, f)
     return texts
 
 def parse_events(texts: List[str]) -> List[Dict]:
@@ -136,7 +159,15 @@ def build_graph(events: List[Dict]) -> nx.DiGraph:
                 G.add_edge(prev["id"], evt["id"])
     return G
 
-def detect_irregularities(events: List[Dict]) -> List[Dict]:
+def detect_irregularities(events: List[Dict], use_cache: bool = True) -> List[Dict]:
+    os.makedirs(CACHE_DIR, exist_ok=True)
+    events_json = json.dumps(events, sort_keys=True)
+    cache_key = hashlib.md5(events_json.encode("utf-8")).hexdigest()
+    cache_path = os.path.join(CACHE_DIR, f"openai_{cache_key}.json")
+    if use_cache and os.path.exists(cache_path):
+        with open(cache_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
     openai.api_key = os.environ.get("OPENAI_API_KEY")
     system_prompt = (
         "You are a claims-compliance auditor. Given this list of events in order, "
@@ -146,10 +177,13 @@ def detect_irregularities(events: List[Dict]) -> List[Dict]:
     )
     messages = [
         {"role": "system", "content": system_prompt},
-        {"role": "user", "content": json.dumps(events)},
+        {"role": "user", "content": events_json},
     ]
     resp = openai.chat.completions.create(model="gpt-3.5-turbo", messages=messages)
-    return json.loads(resp.choices[0].message.content)
+    result = json.loads(resp.choices[0].message.content)
+    with open(cache_path, "w", encoding="utf-8") as f:
+        json.dump(result, f)
+    return result
 
 def annotate_graph(G: nx.DiGraph, irregulars: List[Dict]) -> None:
     # OpenAI responses may occasionally be JSON strings or contain items that are
@@ -242,11 +276,12 @@ def visualize(G: nx.DiGraph) -> None:
     nx.write_graphml(G, "claim_graph.graphml")
 
 def main():
-    messages = fetch_claim_emails()
-    texts = download_and_extract(messages)
+    refresh = "--refresh" in sys.argv
+    messages = fetch_claim_emails(use_cache=not refresh)
+    texts = download_and_extract(messages, use_cache=not refresh)
     events = parse_events(texts)
     G = build_graph(events)
-    irregulars = detect_irregularities(events)
+    irregulars = detect_irregularities(events, use_cache=not refresh)
     annotate_graph(G, irregulars)
     summarize_irregularities(G, irregulars)
     visualize(G)
