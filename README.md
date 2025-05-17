@@ -19,11 +19,14 @@ This project scans claim-related emails to identify irregularities in the claim 
 
 3. **OpenAI API Key**
 
-   Export your API key in the environment before running the script:
+Export your API key in the environment before running the script:
 
    ```bash
    export OPENAI_API_KEY=your-key-here
    ```
+
+   Without a valid API key the irregularity detection step will produce an empty
+   table.
 
 ## Usage
 
