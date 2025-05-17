@@ -34,7 +34,7 @@ def fetch_claim_emails() -> List[dict]:
     """Fetch unread emails for 'State Farm Claim' thread."""
     creds = get_credentials()
     service = build("gmail", "v1", credentials=creds)
-    query = 'is:unread "State Farm Claim"'
+    query = '"State Farm Claim"'
     resp = service.users().messages().list(userId="me", q=query).execute()
     messages = []
     for item in resp.get("messages", []):
