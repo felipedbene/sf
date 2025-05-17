@@ -9,6 +9,15 @@ from typing import List, Dict
 import email
 from email import policy
 from email.parser import BytesParser
+from html import unescape
+
+def _strip_html(html: str) -> str:
+    """Return plaintext from HTML content using simple tag removal."""
+    # Replace common block tags with newlines to preserve structure
+    html = re.sub(r"<(br|p|div|li|tr)[^>]*>", "\n", html, flags=re.I)
+    # Remove all remaining tags
+    text = re.sub(r"<[^>]+>", "", html)
+    return unescape(text)
 
 import logging
 import pdfplumber
@@ -93,11 +102,15 @@ def _extract_eml_text(path: str) -> str:
     parts = []
     if msg.is_multipart():
         for part in msg.walk():
-            if part.get_content_type() == "text/plain":
+            ctype = part.get_content_type()
+            if ctype in ("text/plain", "text/html"):
                 payload = part.get_payload(decode=True)
                 if payload:
                     charset = part.get_content_charset() or "utf-8"
-                    parts.append(payload.decode(charset, errors="ignore"))
+                    text = payload.decode(charset, errors="ignore")
+                    if ctype == "text/html":
+                        text = _strip_html(text)
+                    parts.append(text)
     else:
         payload = msg.get_payload(decode=True)
         if payload:
@@ -155,6 +168,10 @@ def _normalize_timestamp(ts: str) -> str:
         "%Y-%m-%d %H:%M",
         "%m/%d/%Y %H:%M:%S",
         "%m/%d/%Y %H:%M",
+        "%Y-%m-%d %I:%M:%S %p",
+        "%Y-%m-%d %I:%M %p",
+        "%m/%d/%Y %I:%M:%S %p",
+        "%m/%d/%Y %I:%M %p",
     ):
         try:
             return datetime.strptime(ts, fmt).isoformat()
@@ -167,7 +184,10 @@ def parse_events(texts: List[str]) -> List[Dict]:
     """Extract events from various timestamped formats."""
     events: List[Dict] = []
     seen = set()
-    ts_part = r"(?P<timestamp>(?:\d{4}-\d{2}-\d{2}|\d{2}/\d{2}/\d{4})[ T]\d{2}:\d{2}(?::\d{2})?)"
+    ts_part = (
+        r"(?P<timestamp>(?:\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2}/\d{4})"
+        r"[ T]\d{1,2}:\d{2}(?::\d{2})?(?:\s?[APap][Mm])?)"
+    )
     patterns = [
         re.compile(ts_part + r"\s*(?P<actor>[^:]+):\s*(?P<action>[^.\n]+)\.?\s*(?P<details>.*)", re.DOTALL),
         re.compile(ts_part + r"\s*-\s*(?P<actor>[^-]+)\s*-\s*(?P<action>[^-\n]+)\s*-\s*(?P<details>.*)", re.DOTALL),
