@@ -266,3 +266,435 @@ DEBUG:HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" He
 DEBUG:request_id: req_1405fefd49e93907471150ac38da76f5
 DEBUG:close.started
 DEBUG:close.complete
+INFO:file_cache is only supported with oauth2client<4.0.0
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=%22State+Farm+Claim%22&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196d7e16a936d9de?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196ca77b09180e22?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196ca51ac7a1957e?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196ca34228b1ca67?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a6f50311fad9d?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a682be42e47c6?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a61922c455384?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a5f5a4458ffcf?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a34f1da9dc8ba?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a3481688dfc0c?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a31c0dd517f63?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a3103eef4694b?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a30b46b945abf?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a284b3a5fe869?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a1e70dbc57230?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a1e33b747a9a7?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a19deb36ab826?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a1801aaf45df6?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a13d6c8546ff6?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a138490628383?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a137a87fd926c?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a1378fb9394d8?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a10c4cb647182?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a0d7fefa8d618?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/1969d5e7f53a09c3?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/19697bff2907abd3?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196932e676a33e1d?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/1969307c17a325a7?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/19692c2753ea321c?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/19692bbc13487618?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/19692992404e2ed7?format=full&alt=json
+INFO:file_cache is only supported with oauth2client<4.0.0
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\Screenshot 2025-05-05 at 8.00.13 PM.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\~WRD0000.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\~WRD0000.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-13_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-13_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-13_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-13_Jillian_Chrusniak_jillian_chrusniak_k5tk_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-13_Jillian_Chrusniak_jillian_chrusniak_k5tk_statefarm_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-13_Jillian_Chrusniak_jillian_chrusniak_k5tk_statefarm_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-13_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-06_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-06_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-06_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-06_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-06_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\Screenshot 2025-05-05 at 8.00.13 PM.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Riley_Wells_riley_wells_vafnfq_statefarm_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-02_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-02_Felipe_De_Bene_felipe_debene_gmail_com_\~WRD0000.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-02_Riley_Wells_riley_wells_vafnfq_statefarm_com_\~WRD0000.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-daa2ae9c-0571-4f85-93cd-a3e5e51758fe', 'json_data': {'messages': [{'role': 'system', 'content': 'You are a claims-compliance auditor. Given this list of events in order, identify any irregular or suspicious patterns (e.g. payments before approvals, missing communications, duplicate requests).  Return a JSON array of event IDs flagged, each with a brief reason and a severity score (1-10).'}, {'role': 'user', 'content': '[{"action": "1", "actor": "Page", "date": "2025-05-16", "details": "Estimate\\nRO Number:\\n2025 RIVI R1S Adventure w/Dual Motor Large Pack 4D UTV Electric- Electric GRY\\nEstimate Totals Discount $ Markup $ Rate $ Total Hours Total $\\nParts 1,359.02\\nLabor, Body 80.00 6.7 536.00\\nLabor, Refinish 80.00 5.1 408.00\\nMaterial, Paint 45.00 5.1 229.50\\nMiscellaneous 488.00\\nSubtotal 3,020.52\\nSales Tax 164.87\\nGrand Total 3,185.39\\nNet Total 3,185.39\\nEstimate Version Total $\\nOriginal 3,185.39\\nInsurance Total $: 3,185.39\\nReceived from Insurance $: 0.00\\nBalance due from Insurance $: 3,185.39\\nCustomer Total $: 0.00\\nReceived from Customer $: 0.00\\nBalance due from Customer $: 0.00\\n***CONTACT KATE GOMEZ FOR PHOTOS/SUPPORTING DOCUMENTS; KGOMEZ@GOLDCOASTAUTOBODY.COM; 312-525-9682\\n***IMPORTANT: *** If you\\u2019re going through insurance, please keep any payments sent to you by the insurance company and have them available at\\nthe end of repairs. Please contact the insurance to confirm if any payments have been made on the claim/where payments have been sent/and the\\namounts. If signing over an insurance check or writing a check, please ensure to have a driver\\u2019s license to match. All costs for repairs will be due at the\\ntime of pick up.\\n***Payment Method Disclaimer: ***\\nWe charge a 3% credit card fee (to cover the cost of credit card acceptance). No fee applies when using the following payment methods: Debit Cards,\\nInsurance Checks, Cashier Checks, Personal Checks, Cash. If paying with a Personal Check, please have your driver\\u2019s license to match.\\nT = Taxable Item, RPD = Related Prior Damage, AA = Appearance Allowance, UPD = Unrelated Prior Damage, PDR = Paintless Dent Repair, A/M = Aftermarket, Rechr = Rechromed, Reman =\\nRemanufactured, OEM = New Original Equipment Manufacturer, Recor = Re-cored, RECOND = Reconditioned, LKQ = Like Kind Quality or Used, Diag = Diagnostic, Elec = Electrical, Mech =\\nMechanical, Ref = Refinish, Struc = Structural", "id": "evt_001", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:13", "type": "Action"}, {"action": "2", "actor": "Page", "date": "2025-05-16", "details": "", "id": "evt_002", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:13", "type": "Action"}, {"action": "(312) 787-0333, Fax: (312) 787-8997", "actor": "Page 1\\n900 W DIVISION ST, CHICAGO, IL 60642\\nPhone", "date": "2025-05-16", "details": "Image Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments: Comments:\\nComments: Comments:\\nComments: Comments:", "id": "evt_003", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "(312) 787-0333, Fax: (312) 787-8997", "actor": "Page 2\\n900 W DIVISION ST, CHICAGO, IL 60642\\nPhone", "date": "2025-05-16", "details": "Image Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments: Comments:\\nComments: Comments:\\nComments: Comments:", "id": "evt_004", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "(312) 787-0333, Fax: (312) 787-8997", "actor": "Page 3\\n900 W DIVISION ST, CHICAGO, IL 60642\\nPhone", "date": "2025-05-16", "details": "Image Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments: Comments:\\nComments: Comments:\\nComments: Comments:", "id": "evt_005", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "(312) 787-0333, Fax: (312) 787-8997", "actor": "Page 4\\n900 W DIVISION ST, CHICAGO, IL 60642\\nPhone", "date": "2025-05-16", "details": "Image Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments:", "id": "evt_006", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "1", "actor": "Page", "date": "2025-05-16", "details": "900 W DIVISION ST, CHICAGO, IL 60642\\nPhone: (312) 787-0333, Fax: (312) 787-8997\\nImage Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments: Comments:\\nComments: Comments:\\nComments: Comments:", "id": "evt_007", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "2", "actor": "Page", "date": "2025-05-16", "details": "900 W DIVISION ST, CHICAGO, IL 60642\\nPhone: (312) 787-0333, Fax: (312) 787-8997\\nImage Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments: Comments:\\nComments: Comments:\\nComments: Comments:", "id": "evt_008", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "3", "actor": "Page", "date": "2025-05-16", "details": "900 W DIVISION ST, CHICAGO, IL 60642\\nPhone: (312) 787-0333, Fax: (312) 787-8997\\nImage Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments: Comments:\\nComments: Comments:\\nComments: Comments:", "id": "evt_009", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "4", "actor": "Page", "date": "2025-05-16", "details": "900 W DIVISION ST, CHICAGO, IL 60642\\nPhone: (312) 787-0333, Fax: (312) 787-8997\\nImage Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments:", "id": "evt_010", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "5", "actor": "Page", "date": "2025-05-16", "details": "", "id": "evt_011", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}]'}], 'model': 'gpt-3.5-turbo'}}
+DEBUG:Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+DEBUG:connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000026805A4D6A0>
+DEBUG:start_tls.started ssl_context=<ssl.SSLContext object at 0x0000026802DF7380> server_hostname='api.openai.com' timeout=5.0
+DEBUG:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000268050A9F90>
+DEBUG:send_request_headers.started request=<Request [b'POST']>
+DEBUG:send_request_headers.complete
+DEBUG:send_request_body.started request=<Request [b'POST']>
+DEBUG:send_request_body.complete
+DEBUG:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 17 May 2025 21:55:01 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-vezbqrcrkhpa7zvox8i2vwz1'), (b'openai-processing-ms', b'373'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'375'), (b'x-ratelimit-limit-requests', b'5000'), (b'x-ratelimit-limit-tokens', b'4000000'), (b'x-ratelimit-remaining-requests', b'4999'), (b'x-ratelimit-remaining-tokens', b'3997524'), (b'x-ratelimit-reset-requests', b'12ms'), (b'x-ratelimit-reset-tokens', b'37ms'), (b'x-request-id', b'req_121735b318a538919c4e5870d3fde1ac'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=116kEk7aSJjG7IzBkrfCNXGWIa7yxdsOjVkkh06MFIQ-1747518901-1.0.1.1-ez_ERwd4Rr59wJUJhepPW663.8TknI3KoAP4afRx9LGurlr_wvDgDTtb_jCpnFt9jH7CVBHohpwdqqlMMxIwaVNvnM5BGiot6g66veY87QQ; path=/; expires=Sat, 17-May-25 22:25:01 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=9GJYOdYOG7gcgXYTret9Qz9Hl3VSPMDTVJ5w85o9OGk-1747518901459-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'94165b4b791a1247-ORD'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:receive_response_body.started request=<Request [b'POST']>
+DEBUG:receive_response_body.complete
+DEBUG:response_closed.started
+DEBUG:response_closed.complete
+DEBUG:HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 17 May 2025 21:55:01 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-vezbqrcrkhpa7zvox8i2vwz1'), ('openai-processing-ms', '373'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '375'), ('x-ratelimit-limit-requests', '5000'), ('x-ratelimit-limit-tokens', '4000000'), ('x-ratelimit-remaining-requests', '4999'), ('x-ratelimit-remaining-tokens', '3997524'), ('x-ratelimit-reset-requests', '12ms'), ('x-ratelimit-reset-tokens', '37ms'), ('x-request-id', 'req_121735b318a538919c4e5870d3fde1ac'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=116kEk7aSJjG7IzBkrfCNXGWIa7yxdsOjVkkh06MFIQ-1747518901-1.0.1.1-ez_ERwd4Rr59wJUJhepPW663.8TknI3KoAP4afRx9LGurlr_wvDgDTtb_jCpnFt9jH7CVBHohpwdqqlMMxIwaVNvnM5BGiot6g66veY87QQ; path=/; expires=Sat, 17-May-25 22:25:01 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=9GJYOdYOG7gcgXYTret9Qz9Hl3VSPMDTVJ5w85o9OGk-1747518901459-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '94165b4b791a1247-ORD'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+DEBUG:request_id: req_121735b318a538919c4e5870d3fde1ac
+DEBUG:close.started
+DEBUG:close.complete
+INFO:file_cache is only supported with oauth2client<4.0.0
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages?q=%22State+Farm+Claim%22&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196d7e16a936d9de?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196ca77b09180e22?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196ca51ac7a1957e?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196ca34228b1ca67?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a6f50311fad9d?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a682be42e47c6?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a61922c455384?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a5f5a4458ffcf?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a34f1da9dc8ba?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a3481688dfc0c?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a31c0dd517f63?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a3103eef4694b?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a30b46b945abf?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a284b3a5fe869?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a1e70dbc57230?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a1e33b747a9a7?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a19deb36ab826?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a1801aaf45df6?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a13d6c8546ff6?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a138490628383?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a137a87fd926c?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a1378fb9394d8?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a10c4cb647182?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196a0d7fefa8d618?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/1969d5e7f53a09c3?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/19697bff2907abd3?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/196932e676a33e1d?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/1969307c17a325a7?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/19692c2753ea321c?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/19692bbc13487618?format=full&alt=json
+DEBUG:URL being requested: GET https://gmail.googleapis.com/gmail/v1/users/me/messages/19692992404e2ed7?format=full&alt=json
+INFO:file_cache is only supported with oauth2client<4.0.0
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\Screenshot 2025-05-05 at 8.00.13 PM.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\~WRD0000.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-16_Felipe_De_Bene_felipe_debene_gmail_com_\~WRD0000.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-13_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-13_Felipe_De_Bene_felipe_debene_gmail_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-13_Felipe_De_Bene_felipe_debene_gmail_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-13_Jillian_Chrusniak_jillian_chrusniak_k5tk_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-13_Jillian_Chrusniak_jillian_chrusniak_k5tk_statefarm_com_\image001.png: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-13_Jillian_Chrusniak_jillian_chrusniak_k5tk_statefarm_com_\image002.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-13_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-06_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-06_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-06_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-06_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-06_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\Screenshot 2025-05-05 at 8.00.13 PM.png: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image007.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:OCR failed for evidence\2025-05-05_Brett_Twitty_brett_twitty_mkal_statefarm_com_\image001.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-05_Riley_Wells_riley_wells_vafnfq_statefarm_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-02_Felipe_De_Bene_felipe_debene_gmail_com_\image005.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-02_Felipe_De_Bene_felipe_debene_gmail_com_\~WRD0000.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:OCR failed for evidence\2025-05-02_Riley_Wells_riley_wells_vafnfq_statefarm_com_\~WRD0000.jpg: No module named 'pytesseract'
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:html2text unavailable; falling back to regex stripping
+DEBUG:Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'idempotency_key': 'stainless-python-retry-ff7375d7-6b7f-4978-89b7-6d6e7629270e', 'json_data': {'messages': [{'role': 'system', 'content': 'You are a claims-compliance auditor. Given this list of events in order, identify any irregular or suspicious patterns (e.g. payments before approvals, missing communications, duplicate requests).  Return a JSON array of event IDs flagged, each with a brief reason and a severity score (1-10).'}, {'role': 'user', 'content': '[{"action": "1", "actor": "Page", "date": "2025-05-16", "details": "Estimate\\nRO Number:\\n2025 RIVI R1S Adventure w/Dual Motor Large Pack 4D UTV Electric- Electric GRY\\nEstimate Totals Discount $ Markup $ Rate $ Total Hours Total $\\nParts 1,359.02\\nLabor, Body 80.00 6.7 536.00\\nLabor, Refinish 80.00 5.1 408.00\\nMaterial, Paint 45.00 5.1 229.50\\nMiscellaneous 488.00\\nSubtotal 3,020.52\\nSales Tax 164.87\\nGrand Total 3,185.39\\nNet Total 3,185.39\\nEstimate Version Total $\\nOriginal 3,185.39\\nInsurance Total $: 3,185.39\\nReceived from Insurance $: 0.00\\nBalance due from Insurance $: 3,185.39\\nCustomer Total $: 0.00\\nReceived from Customer $: 0.00\\nBalance due from Customer $: 0.00\\n***CONTACT KATE GOMEZ FOR PHOTOS/SUPPORTING DOCUMENTS; KGOMEZ@GOLDCOASTAUTOBODY.COM; 312-525-9682\\n***IMPORTANT: *** If you\\u2019re going through insurance, please keep any payments sent to you by the insurance company and have them available at\\nthe end of repairs. Please contact the insurance to confirm if any payments have been made on the claim/where payments have been sent/and the\\namounts. If signing over an insurance check or writing a check, please ensure to have a driver\\u2019s license to match. All costs for repairs will be due at the\\ntime of pick up.\\n***Payment Method Disclaimer: ***\\nWe charge a 3% credit card fee (to cover the cost of credit card acceptance). No fee applies when using the following payment methods: Debit Cards,\\nInsurance Checks, Cashier Checks, Personal Checks, Cash. If paying with a Personal Check, please have your driver\\u2019s license to match.\\nT = Taxable Item, RPD = Related Prior Damage, AA = Appearance Allowance, UPD = Unrelated Prior Damage, PDR = Paintless Dent Repair, A/M = Aftermarket, Rechr = Rechromed, Reman =\\nRemanufactured, OEM = New Original Equipment Manufacturer, Recor = Re-cored, RECOND = Reconditioned, LKQ = Like Kind Quality or Used, Diag = Diagnostic, Elec = Electrical, Mech =\\nMechanical, Ref = Refinish, Struc = Structural", "id": "evt_001", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:13", "type": "Action"}, {"action": "2", "actor": "Page", "date": "2025-05-16", "details": "", "id": "evt_002", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:13", "type": "Action"}, {"action": "(312) 787-0333, Fax: (312) 787-8997", "actor": "Page 1\\n900 W DIVISION ST, CHICAGO, IL 60642\\nPhone", "date": "2025-05-16", "details": "Image Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments: Comments:\\nComments: Comments:\\nComments: Comments:", "id": "evt_003", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "(312) 787-0333, Fax: (312) 787-8997", "actor": "Page 2\\n900 W DIVISION ST, CHICAGO, IL 60642\\nPhone", "date": "2025-05-16", "details": "Image Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments: Comments:\\nComments: Comments:\\nComments: Comments:", "id": "evt_004", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "(312) 787-0333, Fax: (312) 787-8997", "actor": "Page 3\\n900 W DIVISION ST, CHICAGO, IL 60642\\nPhone", "date": "2025-05-16", "details": "Image Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments: Comments:\\nComments: Comments:\\nComments: Comments:", "id": "evt_005", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "(312) 787-0333, Fax: (312) 787-8997", "actor": "Page 4\\n900 W DIVISION ST, CHICAGO, IL 60642\\nPhone", "date": "2025-05-16", "details": "Image Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments:", "id": "evt_006", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "1", "actor": "Page", "date": "2025-05-16", "details": "900 W DIVISION ST, CHICAGO, IL 60642\\nPhone: (312) 787-0333, Fax: (312) 787-8997\\nImage Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments: Comments:\\nComments: Comments:\\nComments: Comments:", "id": "evt_007", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "2", "actor": "Page", "date": "2025-05-16", "details": "900 W DIVISION ST, CHICAGO, IL 60642\\nPhone: (312) 787-0333, Fax: (312) 787-8997\\nImage Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments: Comments:\\nComments: Comments:\\nComments: Comments:", "id": "evt_008", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "3", "actor": "Page", "date": "2025-05-16", "details": "900 W DIVISION ST, CHICAGO, IL 60642\\nPhone: (312) 787-0333, Fax: (312) 787-8997\\nImage Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments: Comments:\\nComments: Comments:\\nComments: Comments:", "id": "evt_009", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "4", "actor": "Page", "date": "2025-05-16", "details": "900 W DIVISION ST, CHICAGO, IL 60642\\nPhone: (312) 787-0333, Fax: (312) 787-8997\\nImage Report\\nOwner: BENE, FELIPE Insurance: STATE FARM Estimator: Carlos Lara 3 Vehicle Out:\\nRO Number: Claim Number: PENDING\\nYear: 2025 Color: GRY License Plate: FE49561 Production Date: 7/2024\\nMake: RIVI Body Style: 4D UTV State: IL Mileage In: 606\\nModel: R1S Adventure w/... Engine: Electric- Electric VIN: 7PDSGBBA9SN054062 Condition:\\nComments:", "id": "evt_010", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}, {"action": "5", "actor": "Page", "date": "2025-05-16", "details": "", "id": "evt_011", "in_reply_to": null, "message_id": "<CA+LZhat=dyQ67v+T9ipgzYSmiUT2sVjvw4Rt2WT=TJjdAybE9A@mail.gmail.com>", "msg_id": "196d7e16a936d9de", "references": null, "sender": "Felipe De Bene <felipe.debene@gmail.com>", "timestamp": "2025-04-24T16:40:20", "type": "Action"}]'}], 'model': 'gpt-3.5-turbo'}}
+DEBUG:Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+DEBUG:connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+DEBUG:connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001C0E381D6A0>
+DEBUG:start_tls.started ssl_context=<ssl.SSLContext object at 0x000001C0E0BA7410> server_hostname='api.openai.com' timeout=5.0
+DEBUG:start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001C0E1E15F90>
+DEBUG:send_request_headers.started request=<Request [b'POST']>
+DEBUG:send_request_headers.complete
+DEBUG:send_request_body.started request=<Request [b'POST']>
+DEBUG:send_request_body.complete
+DEBUG:receive_response_headers.started request=<Request [b'POST']>
+DEBUG:receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 17 May 2025 21:56:06 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-vezbqrcrkhpa7zvox8i2vwz1'), (b'openai-processing-ms', b'308'), (b'openai-version', b'2020-10-01'), (b'x-envoy-upstream-service-time', b'313'), (b'x-ratelimit-limit-requests', b'5000'), (b'x-ratelimit-limit-tokens', b'4000000'), (b'x-ratelimit-remaining-requests', b'4999'), (b'x-ratelimit-remaining-tokens', b'3997524'), (b'x-ratelimit-reset-requests', b'12ms'), (b'x-ratelimit-reset-tokens', b'37ms'), (b'x-request-id', b'req_999a09cbd726d098103346396fc29120'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=6vyOvMCsWK4cqvNOrBs3ETga5RrHZkpUrTVHkQxDa2I-1747518966-1.0.1.1-.1HIC_Qz01SXolnLQhzliiSM0pdZRxAnnt.ndnqOvnBquI_6saxMojTA38jew.oiLb.Czkj1OQ_goc4jsQUKwniyu9dfjNha4qP9Jm9iE4k; path=/; expires=Sat, 17-May-25 22:26:06 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=ftx7dFDHb_u..roA.Y0ofZD94jlXwsoBBED.WFfA7MI-1747518966624-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'94165ce30b736372-ORD'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+INFO:HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+DEBUG:receive_response_body.started request=<Request [b'POST']>
+DEBUG:receive_response_body.complete
+DEBUG:response_closed.started
+DEBUG:response_closed.complete
+DEBUG:HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 17 May 2025 21:56:06 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-vezbqrcrkhpa7zvox8i2vwz1'), ('openai-processing-ms', '308'), ('openai-version', '2020-10-01'), ('x-envoy-upstream-service-time', '313'), ('x-ratelimit-limit-requests', '5000'), ('x-ratelimit-limit-tokens', '4000000'), ('x-ratelimit-remaining-requests', '4999'), ('x-ratelimit-remaining-tokens', '3997524'), ('x-ratelimit-reset-requests', '12ms'), ('x-ratelimit-reset-tokens', '37ms'), ('x-request-id', 'req_999a09cbd726d098103346396fc29120'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=6vyOvMCsWK4cqvNOrBs3ETga5RrHZkpUrTVHkQxDa2I-1747518966-1.0.1.1-.1HIC_Qz01SXolnLQhzliiSM0pdZRxAnnt.ndnqOvnBquI_6saxMojTA38jew.oiLb.Czkj1OQ_goc4jsQUKwniyu9dfjNha4qP9Jm9iE4k; path=/; expires=Sat, 17-May-25 22:26:06 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=ftx7dFDHb_u..roA.Y0ofZD94jlXwsoBBED.WFfA7MI-1747518966624-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '94165ce30b736372-ORD'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+DEBUG:request_id: req_999a09cbd726d098103346396fc29120
+DEBUG:close.started
+DEBUG:close.complete
