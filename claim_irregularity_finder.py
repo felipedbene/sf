@@ -6,6 +6,9 @@ import hashlib
 import sys
 from datetime import datetime
 from typing import List, Dict
+import email
+from email import policy
+from email.parser import BytesParser
 
 import logging
 import pdfplumber
@@ -83,6 +86,26 @@ def _save_attachment(service, msg_id, part, path):
         f.write(data)
 
 
+def _extract_eml_text(path: str) -> str:
+    """Return plain text from an .eml file."""
+    with open(path, "rb") as f:
+        msg = BytesParser(policy=policy.default).parse(f)
+    parts = []
+    if msg.is_multipart():
+        for part in msg.walk():
+            if part.get_content_type() == "text/plain":
+                payload = part.get_payload(decode=True)
+                if payload:
+                    charset = part.get_content_charset() or "utf-8"
+                    parts.append(payload.decode(charset, errors="ignore"))
+    else:
+        payload = msg.get_payload(decode=True)
+        if payload:
+            charset = msg.get_content_charset() or "utf-8"
+            parts.append(payload.decode(charset, errors="ignore"))
+    return "\n".join(parts)
+
+
 def download_and_extract(messages: List[dict], use_cache: bool = True) -> List[str]:
     """Download attachments and extract text from emails and PDFs."""
     os.makedirs(EVIDENCE_DIR, exist_ok=True)
@@ -117,6 +140,8 @@ def download_and_extract(messages: List[dict], use_cache: bool = True) -> List[s
                 elif mime.startswith("text/"):
                     with open(path, "r", encoding="utf-8", errors="ignore") as f:
                         texts.append(f.read())
+                elif mime == "message/rfc822" or filename.lower().endswith(".eml"):
+                    texts.append(_extract_eml_text(path))
     with open(cache_path, "w", encoding="utf-8") as f:
         json.dump(texts, f)
     return texts
@@ -140,30 +165,33 @@ def _normalize_timestamp(ts: str) -> str:
 
 def parse_events(texts: List[str]) -> List[Dict]:
     """Extract events from various timestamped formats."""
-    events = []
+    events: List[Dict] = []
+    seen = set()
     ts_part = r"(?P<timestamp>(?:\d{4}-\d{2}-\d{2}|\d{2}/\d{2}/\d{4})[ T]\d{2}:\d{2}(?::\d{2})?)"
     patterns = [
         re.compile(ts_part + r"\s*(?P<actor>[^:]+):\s*(?P<action>[^.\n]+)\.?\s*(?P<details>.*)", re.DOTALL),
         re.compile(ts_part + r"\s*-\s*(?P<actor>[^-]+)\s*-\s*(?P<action>[^-\n]+)\s*-\s*(?P<details>.*)", re.DOTALL),
+        re.compile(ts_part + r"\s+(?P<actor>[^-:\n]+)\s+(?P<action>[^-:\n]+)\s*(?P<details>.*)", re.DOTALL),
     ]
     count = 0
     for text in tqdm(texts, desc="Parsing events"):
-        for line in text.splitlines():
-            for pattern in patterns:
-                m = pattern.search(line)
-                if m:
-                    count += 1
-                    events.append(
-                        {
-                            "id": f"evt_{count:03d}",
-                            "actor": m.group("actor").strip(),
-                            "type": "Action",
-                            "action": m.group("action").strip(),
-                            "timestamp": _normalize_timestamp(m.group("timestamp")),
-                            "details": m.group("details").strip(),
-                        }
-                    )
-                    break
+        for pattern in patterns:
+            for m in pattern.finditer(text):
+                key = (m.group("timestamp"), m.group("actor"), m.group("action"), m.groupdict().get("details", ""))
+                if key in seen:
+                    continue
+                seen.add(key)
+                count += 1
+                events.append(
+                    {
+                        "id": f"evt_{count:03d}",
+                        "actor": m.group("actor").strip(),
+                        "type": "Action",
+                        "action": m.group("action").strip(),
+                        "timestamp": _normalize_timestamp(m.group("timestamp")),
+                        "details": m.groupdict().get("details", "").strip(),
+                    }
+                )
     return events
 
 def build_graph(events: List[Dict]) -> nx.DiGraph:
